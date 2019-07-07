@@ -26,37 +26,37 @@ module.exports.getDetailPage = (req, res) => {
 module.exports.getAdminPage = (req, res) => {
     res.render('admin/index.ejs')
 }
-module.exports.getCategories = (req, res) => {
+module.exports.getCategoriesPage = (req, res) => {
     res.render('admin/categories.ejs')
 }
-module.exports.getComments = (req, res) => {
+module.exports.getCommentsPage = (req, res) => {
     res.render('admin/comments.ejs')
 }
-module.exports.getLogin = (req, res) => {
+module.exports.getLoginPage = (req, res) => {
     res.render('admin/login.ejs')
 }
-module.exports.getNavmenus = (req, res) => {
+module.exports.getNavmenusPage = (req, res) => {
     res.render('admin/nav-menus.ejs')
 }
-module.exports.getPasswordReset = (req, res) => {
+module.exports.getPasswordResetPage = (req, res) => {
     res.render('admin/password-reset.ejs')
 }
-module.exports.getPostAdd = (req, res) => {
+module.exports.getPostAddPage = (req, res) => {
     res.render('admin/post-add.ejs')
 }
-module.exports.getPosts = (req, res) => {
+module.exports.getPostsPage = (req, res) => {
     res.render('admin/posts.ejs')
 }
-module.exports.getProfile = (req, res) => {
+module.exports.getProfilePage = (req, res) => {
     res.render('admin/profile.ejs')
 }
-module.exports.getSettings = (req, res) => {
+module.exports.getSettingsPage = (req, res) => {
     res.render('admin/settings.ejs')
 }
-module.exports.getSlides = (req, res) => {
+module.exports.getSlidesPage = (req, res) => {
     res.render('admin/slides.ejs')
 }
-module.exports.getUsers = (req, res) => {
+module.exports.getUsersPage = (req, res) => {
     res.render('admin/users.ejs')
 }
 

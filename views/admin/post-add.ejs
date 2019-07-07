@@ -15,13 +15,7 @@
   <script>NProgress.start()</script>
 
   <div class="main">
-    <nav class="navbar">
-      <button class="btn btn-default navbar-btn fa fa-bars"></button>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="profile.html"><i class="fa fa-user"></i>个人中心</a></li>
-        <li><a href="login.html"><i class="fa fa-sign-out"></i>退出</a></li>
-      </ul>
-    </nav>
+    <%- include('./layout/admin_navbar.ejs')%>
     <div class="container-fluid">
       <div class="page-title">
         <h1>写文章</h1>
@@ -51,8 +45,10 @@
           <div class="form-group">
             <label for="feature">特色图像</label>
             <!-- show when image chose -->
+            <input type="hidden" name='feature' id='usering'>
             <img class="help-block thumbnail" style="display: none">
-            <input id="feature" class="form-control" name="feature" type="file">
+            <!-- 不是每个表单都会有value属性,如file就没有 -->
+            <input id="feature" class="form-control" type="file">
           </div>
           <div class="form-group">
             <label for="category">所属分类</label>
@@ -73,13 +69,16 @@
             </select>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary" type="submit">保存</button>
+            <button class="btn btn-primary btnSave" type="submit">保存</button>
           </div>
         </div>
       </form>
     </div>
   </div>
 
+  <%- include('./layout/admin_footer.ejs')%>
   <%- include('./layout/admin_aside.ejs')%>
 
-  <%- include('./layout/admin_footer.ejs')%>
+
+  <script src='/assets/vendors/ckeditor/ckeditor.js'></script>
+  <script src='/assets/js/postAdd.js'></script>

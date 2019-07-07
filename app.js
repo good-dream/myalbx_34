@@ -21,11 +21,6 @@ const router = require('./routers/indexRouter.js')
 // 创建express服务器
 const app = express()
 
-// 添加服务器端口监听
-app.listen(3000, () => {
-    console.log('http://127.0.0.1:3000')
-})
-
 // 设置模板引擎为ejs
 app.set('view engine', 'ejs')
 // 指定模板文件的目录,后期使用ejs的时候就可以参照这个目录进行ejs文件查询
@@ -39,6 +34,20 @@ app.set("views", 'views')
 app.use('/assets', express.static('assets'))
 
 app.use('/uploads', express.static('uploads'))
+
+
+// 添加body-parser配置
+// app.use(bodyParser.urlencoded({ extended: false }))
+// app.use(bodyParser.json())
+
+
+
+// 添加服务器端口监听
+app.listen(3000, () => {
+    console.log('http://127.0.0.1:3000')
+})
+
+
 
 // 添加路由配置,引入路由模块
 // use:让app应用来使用这个路由进行所有的用户请求的路由管理

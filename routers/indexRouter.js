@@ -8,6 +8,10 @@ const express = require('express')
 
 // 引入pages表的控制器模块
 const pagesController = require('../controllers/pagesController.js')
+const postsController = require('../controllers/postsController.js')
+const cateController = require('../controllers/cateController.js')
+const usersController = require('../controllers/usersController')
+const uploadController = require('../controllers/uploadController')
 
 
 // 创建路由
@@ -30,25 +34,40 @@ router.get('/', pagesController.getIndexPage)
 
     // 后台管理页面,统一添加admin做为前缀
     // 判断后台全部页面的路径
-    // 路径'/admin'和'/admin/index.ejs'是一样的判断路径
+    // 路径'/admin'和'/admin/index'是一样的判断路径
     .get('/admin', pagesController.getAdminPage)
 
-    .get('/admin/categories.ejs', pagesController.getCategories)
-    .get('/admin/comments.ejs', pagesController.getComments)
-    .get('/admin/login.ejs', pagesController.getLogin)
-    .get('/admin/nav-menus.ejs', pagesController.getNavmenus)
-    .get('/admin/password-reset.ejs', pagesController.getPasswordReset)
-    .get('/admin/post-add.ejs', pagesController.getPostAdd)
-    .get('/admin/posts.ejs', pagesController.getPosts)
-    .get('/admin/profile.ejs', pagesController.getProfile)
-    .get('/admin/settings.ejs', pagesController.getSettings)
-    .get('/admin/slides.ejs', pagesController.getSlides)
-    .get('/admin/users.ejs', pagesController.getUsers)
+    .get('/admin/categories', pagesController.getCategoriesPage)
+    .get('/admin/comments', pagesController.getCommentsPage)
+    .get('/admin/login', pagesController.getLoginPage)
+    .get('/admin/nav-menus', pagesController.getNavmenusPage)
+    .get('/admin/password-reset', pagesController.getPasswordResetPage)
+    .get('/admin/post-add', pagesController.getPostAddPage)
+    .get('/admin/posts', pagesController.getPostsPage)
+    .get('/admin/profile', pagesController.getProfilePage)
+    .get('/admin/settings', pagesController.getSettingsPage)
+    .get('/admin/slides', pagesController.getSlidesPage)
+    .get('/admin/users', pagesController.getUsersPage)
+
+
+    // 业务处理
+    // 需求:所有文章的数据动态展示
+    // 获取所有文章数据
+    .get('/getPostList', postsController.getPostList)
+    // 删除所选文章
+    .get('/delPostById', postsController.delPostById)
+    .get('/addPost', postsController.addPost)
 
 
 
+    // 获取所有分类数据
+    .get('/getAllCateList', cateController.getAllCateList)
 
+    //给文件上传添加路由
+    .post('/uploadFile', uploadController.uploadFile)
 
+    //用户登陆
+    .post('/login', usersController.login)
 
 
 // 暴露路由模块,被app.js调用
